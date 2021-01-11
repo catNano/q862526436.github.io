@@ -20,28 +20,44 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="西决的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="如何只使用CSS提升页面渲染速度1. Content-visibility一般来说，大部分 Web 应用都有复杂的 UI 元素，并且它的扩展超出了用户在浏览器视图中所能看到的范围。在这种情况下，我们可以使用content-visibility来跳过渲染屏幕之外的内容。如果你有大量屏幕之外的内容的话，这会大大减少页面渲染时间。 这个功能是最新添加的功能之一，而且它是提升渲染性能最有影响力的功能之一。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何只使用CSS提升页面渲染速度">
+<meta property="og:url" content="http://example.com/2021/01/11/essay/index.html">
 <meta property="og:site_name" content="西决的博客">
+<meta property="og:description" content="如何只使用CSS提升页面渲染速度1. Content-visibility一般来说，大部分 Web 应用都有复杂的 UI 元素，并且它的扩展超出了用户在浏览器视图中所能看到的范围。在这种情况下，我们可以使用content-visibility来跳过渲染屏幕之外的内容。如果你有大量屏幕之外的内容的话，这会大大减少页面渲染时间。 这个功能是最新添加的功能之一，而且它是提升渲染性能最有影响力的功能之一。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQloBBJxWYiaqrlQRu5aSuHagd15Ujxh6bKvTSQ00RH0GMdUkg2kVFDlA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQGB6nhGXISyGR2n6NV5VIJicYapxeLcBFFZxwau61jxsLdcwzeUDLzxA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQaLaSDNgS2kHGQhEBwoyibPxiaKR3zovQsA2W9xNRkT1bDPmmPQ1VPIjQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQgA1via3WP4UvGBqRrDSpvJFMBic3S7DjWH6PN10ocpPFFESK6q4PM80g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQVVRnOYMFHwWCEECc8y23r1pPwD9JEia5y4HM7GM7uUnickYic1W9KmX0w/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQKiaGXxF2gIakErRUPVu7D3H8bJ9jIkXplLRHSBUV1o1OZgmxia8NB0mg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQ65KrxnHCMsDU7XicXibcibZk3cePV4RXSP7buCQVeT6MzoS6BiadQTuuCw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQo17CuJctpLtPLkMkFicqWSrUVqTDkXibu6a7lM3krUEYqLx5sEFkonYA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQufUV1fia7Xd21FL6VEtLVbBn9B8uf6CwLSg5gl2lngRpJ9kHSEfFrkA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="article:published_time" content="2021-01-11T12:35:43.000Z">
+<meta property="article:modified_time" content="2021-01-11T12:38:28.827Z">
 <meta property="article:author" content="西决">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="性能">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQloBBJxWYiaqrlQRu5aSuHagd15Ujxh6bKvTSQ00RH0GMdUkg2kVFDlA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/01/11/essay/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>西决的博客</title>
+  <title>如何只使用CSS提升页面渲染速度 | 西决的博客</title>
   
 
 
@@ -149,9 +165,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -167,10 +184,9 @@
       <meta itemprop="name" content="西决的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/essay/" class="post-title-link" itemprop="url">如何只使用CSS提升页面渲染速度</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          如何只使用CSS提升页面渲染速度
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -203,7 +219,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="如何只使用CSS提升页面渲染速度"><a href="#如何只使用CSS提升页面渲染速度" class="headerlink" title="如何只使用CSS提升页面渲染速度"></a>如何只使用CSS提升页面渲染速度</h2><h2 id="1-Content-visibility"><a href="#1-Content-visibility" class="headerlink" title="1. Content-visibility"></a>1. Content-visibility</h2><p>一般来说，大部分 Web 应用都有复杂的 UI 元素，并且它的扩展超出了用户在浏览器视图中所能看到的范围。在这种情况下，我们可以使用<code>content-visibility</code>来跳过渲染屏幕之外的内容。如果你有大量屏幕之外的内容的话，这会大大减少页面渲染时间。</p>
+        <h2 id="如何只使用CSS提升页面渲染速度"><a href="#如何只使用CSS提升页面渲染速度" class="headerlink" title="如何只使用CSS提升页面渲染速度"></a>如何只使用CSS提升页面渲染速度</h2><h2 id="1-Content-visibility"><a href="#1-Content-visibility" class="headerlink" title="1. Content-visibility"></a>1. Content-visibility</h2><p>一般来说，大部分 Web 应用都有复杂的 UI 元素，并且它的扩展超出了用户在浏览器视图中所能看到的范围。在这种情况下，我们可以使用<code>content-visibility</code>来跳过渲染屏幕之外的内容。如果你有大量屏幕之外的内容的话，这会大大减少页面渲染时间。</p>
 <p>这个功能是最新添加的功能之一，而且它是提升渲染性能最有影响力的功能之一。<code>content-visibility</code>接受几个值，我们可以在一个元素上使用<code>content-visibility: auto;</code>来立即获得性能提升。</p>
 <p>我们可以看下面这个页面，包含很多显示不同信息的卡片。虽然屏幕能显示大约 12 个卡片，但列表中有差不多 375 个卡片。如你所见，浏览器花费 1037ms 来渲染这个页面。</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQloBBJxWYiaqrlQRu5aSuHagd15Ujxh6bKvTSQ00RH0GMdUkg2kVFDlA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
@@ -264,88 +280,34 @@
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQufUV1fia7Xd21FL6VEtLVbBn9B8uf6CwLSg5gl2lngRpJ9kHSEfFrkA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
 <p>​                                                                使用链接的瀑布图</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/%E6%80%A7%E8%83%BD/" rel="tag"># 性能</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/08/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="西决">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="西决的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/hello-world/" class="post-title-link" itemprop="url">博客搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-08 13:52:54 / 修改时间：17:17:38" itemprop="dateCreated datePublished" datetime="2021-01-08T13:52:54+08:00">2021-01-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/08/hello-world/" rel="prev" title="博客搭建">
+      <i class="fa fa-chevron-left"></i> 博客搭建
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -398,6 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8F%AA%E4%BD%BF%E7%94%A8CSS%E6%8F%90%E5%8D%87%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E9%80%9F%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">如何只使用CSS提升页面渲染速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Content-visibility"><span class="nav-number">2.</span> <span class="nav-text">1. Content-visibility</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Will-change%E5%B1%9E%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">2.Will-change属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%87%8F%E5%B0%91%E6%B8%B2%E6%9F%93%E9%98%BB%E5%A1%9E%E6%97%B6%E9%97%B4"><span class="nav-number">4.</span> <span class="nav-text">3.减少渲染阻塞时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-import-%E6%9D%A5%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">4. 避免使用 @import 来包含多个样式表</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
