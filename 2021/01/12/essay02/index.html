@@ -20,28 +20,34 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="西决的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="Nginx常用配置总结一、Nginx介绍 Nginx是一款面向性能设计的HTTP服务器，能反向代理HTTP，HTTPS和邮件相关（SMTP，POP3，IMAP）的协议链接。并且提供了负载均衡以及HTTP缓存。它的设计充分使用异步事件模型，消减上下文调度的开销，提高服务器并发能力。采用了模块化设计，提供了丰富模块的第三方模块。  所以关于Nginx，有这些标签：「异步」，「事件」，「模块化」，「高性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx常用配置总结">
+<meta property="og:url" content="http://example.com/2021/01/12/essay02/index.html">
 <meta property="og:site_name" content="西决的博客">
+<meta property="og:description" content="Nginx常用配置总结一、Nginx介绍 Nginx是一款面向性能设计的HTTP服务器，能反向代理HTTP，HTTPS和邮件相关（SMTP，POP3，IMAP）的协议链接。并且提供了负载均衡以及HTTP缓存。它的设计充分使用异步事件模型，消减上下文调度的开销，提高服务器并发能力。采用了模块化设计，提供了丰富模块的第三方模块。  所以关于Nginx，有这些标签：「异步」，「事件」，「模块化」，「高性">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-12T02:56:39.000Z">
+<meta property="article:modified_time" content="2021-01-12T02:58:11.874Z">
 <meta property="article:author" content="西决">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/01/12/essay02/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>西决的博客</title>
+  <title>Nginx常用配置总结 | 西决的博客</title>
   
 
 
@@ -149,9 +155,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -167,10 +174,9 @@
       <meta itemprop="name" content="西决的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/12/essay02/" class="post-title-link" itemprop="url">Nginx常用配置总结</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Nginx常用配置总结
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -203,7 +209,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Nginx常用配置总结"><a href="#Nginx常用配置总结" class="headerlink" title="Nginx常用配置总结"></a>Nginx常用配置总结</h1><h2 id="一、Nginx介绍"><a href="#一、Nginx介绍" class="headerlink" title="一、Nginx介绍"></a>一、Nginx介绍</h2><blockquote>
+        <h1 id="Nginx常用配置总结"><a href="#Nginx常用配置总结" class="headerlink" title="Nginx常用配置总结"></a>Nginx常用配置总结</h1><h2 id="一、Nginx介绍"><a href="#一、Nginx介绍" class="headerlink" title="一、Nginx介绍"></a>一、Nginx介绍</h2><blockquote>
 <p>Nginx是一款面向性能设计的HTTP服务器，能反向代理HTTP，HTTPS和邮件相关（SMTP，POP3，IMAP）的协议链接。并且提供了负载均衡以及HTTP缓存。它的设计充分使用<strong>异步事件</strong>模型，消减上下文调度的开销，提高服务器并发能力。采用了模块化设计，提供了丰富模块的第三方模块。</p>
 </blockquote>
 <p>所以关于Nginx，有这些标签：「异步」，「事件」，「模块化」，「高性能」，「高并发」，「反向代理」，「负载均衡」</p>
@@ -1057,215 +1063,34 @@
 <p>解决办法，<code>fastcgi_param HTTPS $https if_not_empty</code> 添加这条规则，</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl; # 注意这条规则</span><br><span class="line">    server_name  my.domain.com;</span><br><span class="line">    </span><br><span class="line">    fastcgi_param HTTPS $https if_not_empty;</span><br><span class="line">    fastcgi_param HTTPS on;</span><br><span class="line"></span><br><span class="line">    ssl_certificate &#x2F;etc&#x2F;ssl&#x2F;certs&#x2F;your.pem;</span><br><span class="line">    ssl_certificate_key &#x2F;etc&#x2F;ssl&#x2F;private&#x2F;your.key;</span><br><span class="line"></span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        # Your config here...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/essay/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="西决">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="西决的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/essay/" class="post-title-link" itemprop="url">如何只使用CSS提升页面渲染速度</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-11 20:35:43 / 修改时间：20:38:28" itemprop="dateCreated datePublished" datetime="2021-01-11T20:35:43+08:00">2021-01-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="如何只使用CSS提升页面渲染速度"><a href="#如何只使用CSS提升页面渲染速度" class="headerlink" title="如何只使用CSS提升页面渲染速度"></a>如何只使用CSS提升页面渲染速度</h2><h2 id="1-Content-visibility"><a href="#1-Content-visibility" class="headerlink" title="1. Content-visibility"></a>1. Content-visibility</h2><p>一般来说，大部分 Web 应用都有复杂的 UI 元素，并且它的扩展超出了用户在浏览器视图中所能看到的范围。在这种情况下，我们可以使用<code>content-visibility</code>来跳过渲染屏幕之外的内容。如果你有大量屏幕之外的内容的话，这会大大减少页面渲染时间。</p>
-<p>这个功能是最新添加的功能之一，而且它是提升渲染性能最有影响力的功能之一。<code>content-visibility</code>接受几个值，我们可以在一个元素上使用<code>content-visibility: auto;</code>来立即获得性能提升。</p>
-<p>我们可以看下面这个页面，包含很多显示不同信息的卡片。虽然屏幕能显示大约 12 个卡片，但列表中有差不多 375 个卡片。如你所见，浏览器花费 1037ms 来渲染这个页面。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQloBBJxWYiaqrlQRu5aSuHagd15Ujxh6bKvTSQ00RH0GMdUkg2kVFDlA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                                            一般 HTML 页面</p>
-<p>下一步，你可以向所有的卡片中加入<code>content-visibility</code>。</p>
-<blockquote>
-<p>在这个例子中，向页面中加入<code>content-visibility</code>后，渲染时间下降到 150ms。性能提升了 6 倍以上。</p>
-</blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQGB6nhGXISyGR2n6NV5VIJicYapxeLcBFFZxwau61jxsLdcwzeUDLzxA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                                        使用 content-visibility</p>
-<p>如你所见，content-visibility 的功能很强大，对于改善页面渲染时间非常有用。根据我们目前为止讨论的内容，你一定在想它是针对页面渲染的灵丹妙药。</p>
-<p>content-visibility 的限制</p>
-<p>然而，也有一些领域 content-visibility 不适合。我想强调 2 点供你考虑。</p>
-<p><strong>这个功能还是实验性的。</strong>目前，Firefox（PC 和 Android 版本）、Internet Explorer (我不认为他们计划向 IE 中添加这个功能) 以及 Safari (Mac 和 iOS) 不支持 content-visibility。</p>
-<p><strong>与滚动条行为相关的问题。</strong>由于元素最初渲染的高度是 0px，当你向下滚动时，这些元素会进入屏幕。实际的内容会被渲染，这个元素的高度会被相应地更新。这会使滚动条出现预料之外的行为。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQaLaSDNgS2kHGQhEBwoyibPxiaKR3zovQsA2W9xNRkT1bDPmmPQ1VPIjQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                                使用 content-visibility 的滚动行为</p>
-<p>为了修复这个滚动条问题，你可以使用另一个 CSS 属性，<code>contain-intrinsic-size</code>。它指定了一个元素的自然大小。因此，这个元素会用指定的高度渲染，而不是 0px。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span>&#123;</span><br><span class="line">    <span class="attribute">content-visibility</span>: auto;</span><br><span class="line">    <span class="attribute">contain-intrinsic-size</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然而，在实验时，我发现即使使用<code>containt-intrinsic-size</code>，如果我们有很多元素都使用<code>content-visibility</code>且设置为<code>auto</code>，你仍然会有微小的滚动条问题。因此，我的建议是规划你的布局，将它分解为几个部分，然后在那几个部分上使用 content-visibility 来获取更好的滚动条行为。</p>
-<h2 id="2-Will-change属性"><a href="#2-Will-change属性" class="headerlink" title="2.Will-change属性"></a>2.Will-change属性</h2><p>浏览器上的动画并不是一个新鲜事物。通常，这些动画与其它元素一起正常渲染。然而，浏览器现在能够使用 GPU 来优化这些动画的某些操作。</p>
-<blockquote>
-<p>使用 will-change CSS 属性，我们可以表明该元素将要修改特定的属性，让浏览器提前执行必要的优化。</p>
-</blockquote>
-<p>底层发生的是，浏览器会为这个元素创建一个单独的层。然后，浏览器将这个元素的渲染委托给 GPU，以及其它一些优化。由于 GPU 加速接管了动画渲染，最终这个动画会更流畅。</p>
-<p>考虑如下 CSS 类：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// In stylesheet</span><br><span class="line">.animating-element &#123;</span><br><span class="line">  will-change: opacity;</span><br><span class="line">&#125;</span><br><span class="line">// In HTML</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;animating-elememt&quot;</span>&gt;</span></span><br><span class="line">  Animating Child elements</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>当在浏览器中渲染上面的代码时，它会识别出<code>will-change</code>属性，并优化未来与不透明度 opacity 相关的变更。</p>
-<blockquote>
-<p>根据 Maximillian Laumeister 所做的性能基准测试，你可以看到他只改变了一行代码就获得了超过 120FPS 的渲染速度，而最初的渲染速度大约是 50FPS。</p>
-</blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQgA1via3WP4UvGBqRrDSpvJFMBic3S7DjWH6PN10ocpPFFESK6q4PM80g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                            不使用 will-change</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQVVRnOYMFHwWCEECc8y23r1pPwD9JEia5y4HM7GM7uUnickYic1W9KmX0w/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                            使用 will-change</p>
-<p>什么时候不要用 will-change</p>
-<p>尽管<code>will-change</code>是用来提升性能的，但如果你误用它，也会降低 Web 应用的性能。</p>
-<p><strong>使用</strong><code>will-change</code><strong>表明这个元素将来会改变</strong>。</p>
-<p>因此，如果你试图将<code>will-change</code>与同步动画一起使用，它不会给你优化。因此，建议在父元素上使用 will-change，在子元素上使用动画。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.my-class</span>&#123;</span><br><span class="line">  <span class="attribute">will-change</span>: opacity;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child-class</span>&#123;</span><br><span class="line">  <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease-in-out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>不要使用未设置动画的元素。</strong>当你在一个元素上使用<code>will-change</code>，浏览器会尝试通过将它放到一个新层中并将转换移交给 GPU 来优化它。如果你没有要转换的东西，这会导致资源浪费。</p>
-<p>最后要记住的是，建议在完成所有动画之后将 will-change 从元素上删除。</p>
-<h2 id="3-减少渲染阻塞时间"><a href="#3-减少渲染阻塞时间" class="headerlink" title="3.减少渲染阻塞时间"></a>3.减少渲染阻塞时间</h2><p>今天，许多 Web 应用必须满足许多形式因素，包括 PC、平板电脑和移动手机等。为了实现这种响应式特性，我们必须根据媒介大小编写新的样式。在页面渲染时，直到 CSS 对象模型（CSS Object Model，CSSOM）准备就绪，它才开始渲染阶段。根据你的 Web 应用，你可能有一个很大的样式表来满足所有的设备形式因素。</p>
-<p>然而，假设我们根据形式因素将它拆分成多个样式表。在这种情况下，我们可以只让主 CSS 文件阻塞关键路径，并将其优先下载，让其它样式表以低优先级的方式下载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;styles.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQKiaGXxF2gIakErRUPVu7D3H8bJ9jIkXplLRHSBUV1o1OZgmxia8NB0mg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                                        单个样式表</p>
-<p>在将它分解成多个样式表后：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- style.css contains only the minimal styles needed for the page rendering --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;styles.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Following stylesheets have only the styles necessary for the form factor --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;sm.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;(min-width: 20em)&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;md.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;(min-width: 64em)&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;lg.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;(min-width: 90em)&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;ex.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;(min-width: 120em)&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;print.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;print&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQ65KrxnHCMsDU7XicXibcibZk3cePV4RXSP7buCQVeT6MzoS6BiadQTuuCw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>如你所见，根据形式因素拆分样式表能够减少渲染阻塞时间。</p>
-<h2 id="4-避免使用-import-来包含多个样式表"><a href="#4-避免使用-import-来包含多个样式表" class="headerlink" title="4. 避免使用 @import 来包含多个样式表"></a>4. 避免使用 @import 来包含多个样式表</h2><p>使用<code>@import</code>，我们可以在一个样式表中包含另一个样式表。当我们在处理一个大型项目时，使用<code>@import</code>会让代码更简洁。</p>
-<p>关于 @import 的一个关键事实是，它是一个阻塞调用，因为它必须发起一个网络请求来获取这个文件，解析它，然后将它包含在样式表中。如果我们在样式表中有嵌套的 @import，它会妨碍渲染性能。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># style.css</span><br><span class="line">@<span class="keyword">import</span> url(<span class="string">&quot;windows.css&quot;</span>);</span><br><span class="line"># windows.css</span><br><span class="line">@<span class="keyword">import</span> url(<span class="string">&quot;componenets.css&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQo17CuJctpLtPLkMkFicqWSrUVqTDkXibu6a7lM3krUEYqLx5sEFkonYA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                            使用 imports 的瀑布图</p>
-<p>与其使用<code>@import</code>，我们可以使用多个链接 link 实现相同的功能且具有更好的性能，因为它允许并行下载样式表。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/XIibZ0YbvibkVfKficWWWfwGWY6EVzEWibhQufUV1fia7Xd21FL6VEtLVbBn9B8uf6CwLSg5gl2lngRpJ9kHSEfFrkA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>​                                                                使用链接的瀑布图</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/11/essay/" rel="prev" title="如何只使用CSS提升页面渲染速度">
+      <i class="fa fa-chevron-left"></i> 如何只使用CSS提升页面渲染速度
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="西决">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="西决的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/hello-world/" class="post-title-link" itemprop="url">博客搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-08 13:52:54 / 修改时间：17:17:38" itemprop="dateCreated datePublished" datetime="2021-01-08T13:52:54+08:00">2021-01-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -1318,6 +1143,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">Nginx常用配置总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Nginx%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">一、Nginx介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">二、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 编译安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-nginx%E6%B5%8B%E8%AF%95"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 nginx测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80nginx%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 设置全局nginx命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number">1.3.</span> <span class="nav-text">三、开机自启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">开机自启动方法一：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%BF%90%E7%BB%B4"><span class="nav-number">1.4.</span> <span class="nav-text">四、运维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 服务管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 重启服务防火墙报错解决</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81nginx%E5%8D%B8%E8%BD%BD"><span class="nav-number">1.5.</span> <span class="nav-text">五、nginx卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">1.6.</span> <span class="nav-text">六、参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.</span> <span class="nav-text">七、配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99"><span class="nav-number">1.7.1.</span> <span class="nav-text">7.1 常用正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">1.7.2.</span> <span class="nav-text">7.2 全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-%E7%AC%A6%E5%8F%B7%E5%8F%82%E8%80%83"><span class="nav-number">1.7.3.</span> <span class="nav-text">7.3 符号参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.7.4.</span> <span class="nav-text">7.4 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-%E5%86%85%E7%BD%AE%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="nav-number">1.7.5.</span> <span class="nav-text">7.5 内置预定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.7.6.</span> <span class="nav-text">7.6 反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-number">1.7.7.</span> <span class="nav-text">7.7 负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-1-RR"><span class="nav-number">1.7.7.1.</span> <span class="nav-text">7.7.1 RR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-2-%E6%9D%83%E9%87%8D"><span class="nav-number">1.7.7.2.</span> <span class="nav-text">7.7.2 权重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-3-ip-hash"><span class="nav-number">1.7.7.3.</span> <span class="nav-text">7.7.3 ip_hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-4-fair"><span class="nav-number">1.7.7.4.</span> <span class="nav-text">7.7.4 fair</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-5-url-hash"><span class="nav-number">1.7.7.5.</span> <span class="nav-text">7.7.5 url_hash</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-8-%E5%B1%8F%E8%94%BDip"><span class="nav-number">1.7.8.</span> <span class="nav-text">7.8 屏蔽ip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">1.8.</span> <span class="nav-text">八、第三方模块安装方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.9.</span> <span class="nav-text">九、重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-%E9%87%8D%E5%AE%9A%E5%90%91%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">1.9.1.</span> <span class="nav-text">9.1 重定向整个网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-%E9%87%8D%E5%AE%9A%E5%90%91%E5%8D%95%E9%A1%B5"><span class="nav-number">1.9.2.</span> <span class="nav-text">9.2 重定向单页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-%E9%87%8D%E5%AE%9A%E5%90%91%E6%95%B4%E4%B8%AA%E5%AD%90%E8%B7%AF%E5%BE%84"><span class="nav-number">1.9.3.</span> <span class="nav-text">9.3 重定向整个子路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%80%A7%E8%83%BD"><span class="nav-number">1.10.</span> <span class="nav-text">十、性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-%E5%86%85%E5%AE%B9%E7%BC%93%E5%AD%98"><span class="nav-number">1.10.1.</span> <span class="nav-text">10.1 内容缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-Gzip%E5%8E%8B%E7%BC%A9"><span class="nav-number">1.10.2.</span> <span class="nav-text">10.2 Gzip压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E7%BC%93%E5%AD%98"><span class="nav-number">1.10.3.</span> <span class="nav-text">10.3 打开文件缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-SSL%E7%BC%93%E5%AD%98"><span class="nav-number">1.10.4.</span> <span class="nav-text">10.4 SSL缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-5-%E4%B8%8A%E6%B8%B8Keepalive"><span class="nav-number">1.10.5.</span> <span class="nav-text">10.5 上游Keepalive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-6-%E7%9B%91%E6%8E%A7"><span class="nav-number">1.10.6.</span> <span class="nav-text">10.6 监控</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.11.</span> <span class="nav-text">十一、常见使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.11.1.</span> <span class="nav-text">11.1 跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%B8%A6www%E7%9A%84%E5%9F%9F%E4%B8%8A%E9%9D%A2"><span class="nav-number">1.11.2.</span> <span class="nav-text">11.2 跳转到带www的域上面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91"><span class="nav-number">1.11.3.</span> <span class="nav-text">11.3 代理转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-4-%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91%E8%BF%9E%E6%8E%A5%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.11.4.</span> <span class="nav-text">11.4 代理转发连接替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-ssl%E9%85%8D%E7%BD%AE"><span class="nav-number">1.11.5.</span> <span class="nav-text">11.5 ssl配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-%E5%BC%BA%E5%88%B6%E5%B0%86http%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0https"><span class="nav-number">1.11.6.</span> <span class="nav-text">11.6 强制将http重定向到https</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-7-%E4%B8%A4%E4%B8%AA%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="nav-number">1.11.7.</span> <span class="nav-text">11.7 两个虚拟主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-8-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%A0%87%E5%87%86%E9%85%8D%E7%BD%AE"><span class="nav-number">1.11.8.</span> <span class="nav-text">11.8 虚拟主机标准配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-9-%E9%98%B2%E7%9B%97%E9%93%BE"><span class="nav-number">1.11.9.</span> <span class="nav-text">11.9 防盗链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-10%E8%99%9A%E6%8B%9F%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE"><span class="nav-number">1.11.10.</span> <span class="nav-text">11.10虚拟目录配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-11-%E9%98%B2%E7%9B%97%E5%9B%BE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.11.11.</span> <span class="nav-text">11.11 防盗图配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-12-%E5%B1%8F%E8%94%BD-git%E7%AD%89%E6%96%87%E4%BB%B6"><span class="nav-number">1.11.12.</span> <span class="nav-text">11.12 屏蔽.git等文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-13-%E5%9F%9F%E5%90%8D%E8%B7%AF%E5%BE%84%E5%8A%A0%E4%B8%8D%E5%8A%A0%E9%9C%80%E8%A6%81%E9%83%BD%E8%83%BD%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE"><span class="nav-number">1.11.13.</span> <span class="nav-text">11.13 域名路径加不加需要都能正常访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98"><span class="nav-number">1.12.</span> <span class="nav-text">十二、错误问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
